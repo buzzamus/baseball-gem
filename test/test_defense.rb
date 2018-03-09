@@ -3,4 +3,4 @@ require 'baseball'
 
 class TestDefense < Test::Unit::TestCase
 
-end 
+end
