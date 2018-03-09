@@ -1,5 +1,8 @@
 require 'baseball/version'
 require 'baseball/batting'
+require 'baseball/pitching'
+require 'baseball/fielding'
+require 'baseball/running'
 
 module Baseball
 

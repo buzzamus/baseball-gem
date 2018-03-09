@@ -1,8 +1,8 @@
 # Baseball
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/baseball`. To experiment with that code, run `bin/console` for an interactive prompt.
+This Ruby gem contains a pre-created library for factoring baseball statistics.
 
-TODO: Delete this and the text above, and describe your gem
+* Gem is still in development and not yet available via rubygems.org
 
 ## Installation
 
@@ -22,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Example uses:
+
+##### Figuring Batting Average
+
+```ruby
+Baseball.batting_average(400, 100)
+# will return value of .25
+```
 
 ## Development
 
@@ -32,7 +39,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/baseball.
+Bug reports and pull requests are welcome on GitHub at https://github.com/buzzamus/baseball.
+
+Ruby programmers that are also very familiar with baseball statistics especially welcome.
 
 ## License
 
