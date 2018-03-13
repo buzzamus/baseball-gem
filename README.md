@@ -22,14 +22,53 @@ Or install it yourself as:
 
 ## Usage
 
+All methods in `Baseball` take a hash as an argument. The hash should contain all the
+key-value pairs needed for the specific method called.
+
+Example hash:
+
+```ruby
+your_player_hash = {
+  at_bats: 420,
+  hits: 134,
+  walks: 68,
+  hbp: 1,
+  sac_flies: 3,
+  singles: 77,
+  doubles: 27,
+  triples: 1,
+  hr: 29
+}
+```
+
 Example uses:
 
 ##### Figuring Batting Average
 
 ```ruby
-Baseball.batting_average(400, 100)
-# will return value of .25
+Baseball.batting_average(your_player_hash)
+# will return value of ".319"
 ```
+
+#### Figure On Base Percentage
+```ruby
+Baseball.obp(your_player_hash)
+# will return value of ".413"
+```
+
+#### Figure Slugging Percentage
+```ruby
+Baseball.slg(your_player_hash)
+# will return a value of ".595"
+```
+
+#### Figure On Base Plus Slugging
+```ruby
+Baseball.ops(your_player_hash)
+# will return a value of "1.008"
+```
+
+All values are returned as a string
 
 ## Development
 

@@ -28,4 +28,8 @@ class TestPitchers < Test::Unit::TestCase
     #need to convert into thirds
   end
 
+  test "pitchers k/9 should be valid" do
+    
+  end
+
 end
