@@ -47,12 +47,12 @@ class TestBatters < Test::Unit::TestCase
   end
 
   test "slugging percentage should be figured correctly" do
-    puts Baseball.slg(@player_hash_4)
+    #puts Baseball.slg(@player_hash_4)
     assert_equal ".595", Baseball.slg(@player_hash_4)
   end
 
   test "OPS should be figured by obp and slg" do
-    puts Baseball.ops(@player_hash_4)
+    #puts Baseball.ops(@player_hash_4)
     assert_equal "1.008", Baseball.ops(@player_hash_4)
   end
 

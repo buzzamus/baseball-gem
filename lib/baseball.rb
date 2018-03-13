@@ -9,6 +9,7 @@ module Baseball
   #table of contents
     #batter stats
     #pitcher stats
+    # fielder stats
 
   def self.version_number
     Baseball::VERSION
@@ -51,6 +52,13 @@ module Baseball
     include Pitching
     pitcher = Pitcher.new(pitcher_hash)
     pitcher.whip
+  end
+
+  #fielder stats
+  def self.fielding_percentage(fielder_hash)
+    include Fielding
+    fielder = Fielder.new(fielder_hash)
+    fielder.fielding_percentage
   end
 
 end
