@@ -22,5 +22,4 @@ class TestRunners < Test::Unit::TestCase
     assert_equal ".769", Baseball.stolen_base_percentage(@player)
   end
 
-
 end

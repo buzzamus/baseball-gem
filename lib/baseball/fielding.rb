@@ -18,7 +18,6 @@ module Fielding
       fielding_percentage = avg.to_s.sub!("0", "")
       figure_trailing_zeroes(fielding_percentage)
     end
-
   end
 
 end

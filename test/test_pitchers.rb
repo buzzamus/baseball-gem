@@ -29,7 +29,7 @@ class TestPitchers < Test::Unit::TestCase
   end
 
   test "pitchers k/9 should be valid" do
-    
+    #k/9 test logic here 
   end
 
 end

@@ -2,7 +2,7 @@
 
 This Ruby gem contains a pre-created library for factoring baseball statistics.
 
-* Gem is still in development with ore stats to be added.
+* Gem is still in development with more stats to be added.
 
 * Note: This project is in no way taking credit for creating any of the included baseball stats.
 This is a library created strictly to be used in easily figuring the included statistics based on the data received by the user.
