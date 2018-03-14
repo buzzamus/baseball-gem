@@ -61,4 +61,10 @@ module Baseball
     fielder.fielding_percentage
   end
 
+  def self.stolen_base_percentage(runner_hash)
+    include Running
+    runner = Runner.new(runner_hash)
+    runner.stolen_base_percentage
+  end
+  
 end

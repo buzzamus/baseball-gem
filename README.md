@@ -4,6 +4,9 @@ This Ruby gem contains a pre-created library for factoring baseball statistics.
 
 * Gem is still in development and not yet available via rubygems.org
 
+* Note: This project is in no way taking credit for creating any of the included baseball stats.
+This is a library created strictly to be used in easily figuring the included statistics based on the data received by the user. 
+
 ## Installation
 
 Add this line to your application's Gemfile:
