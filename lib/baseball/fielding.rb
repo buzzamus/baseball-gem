@@ -1,6 +1,9 @@
+require 'baseball/helper'
+
 module Fielding
 
   class Fielder
+    include Helper
     attr_accessor :player_hash
     def initialize(player_hash)
       @player = player_hash
@@ -13,13 +16,7 @@ module Fielding
       avg = player_avg.round(3)
       # code smell - make this a several function called somewhere since this is used over multiple stats
       fielding_percentage = avg.to_s.sub!("0", "")
-      if fielding_percentage.length === 3
-        fielding_percentage = "#{fielding_percentage}0"
-      elsif fielding_percentage.length === 2
-        fielding_percentage = "#{fielding_percentage}00"
-      else
-        return fielding_percentage.round
-      end
+      figure_trailing_zeroes(fielding_percentage)
     end
 
   end

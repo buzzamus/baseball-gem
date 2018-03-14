@@ -1,6 +1,9 @@
+require 'baseball/helper'
+
 module Running
 
   class Runner
+    include Helper
     attr_accessor :runner_hash
     def initialize(runner_hash)
       @runner = runner_hash
@@ -17,21 +20,6 @@ module Running
       #Created by Total baseball
       # (.3 x stolen bases) - (.6 x caught stealing)
     end
-
-
-    def figure_trailing_zeroes(arg)
-      revised_number = arg
-      if revised_number.length === 3
-        revised_number = "#{revised_number}0"
-      elsif revised_number.length === 2
-        revised_number = "#{revised_number}00"
-      else
-        return revised_number
-      end
-    end
-
-
   end
-
-
+  
 end

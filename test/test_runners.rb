@@ -17,7 +17,7 @@ class TestRunners < Test::Unit::TestCase
 
   test "base running percentage should be accurate" do
     #puts Baseball.stolen_base_percentage(@player)
-    puts Baseball.stolen_base_percentage(@player2)
+    #puts Baseball.stolen_base_percentage(@player2)
     assert_equal ".769", Baseball.stolen_base_percentage(@player)
     assert_equal ".769", Baseball.stolen_base_percentage(@player)
   end
