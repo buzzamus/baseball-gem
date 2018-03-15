@@ -3,6 +3,7 @@ require 'baseball/batting'
 require 'baseball/pitching'
 require 'baseball/fielding'
 require 'baseball/running'
+require 'baseball/player'
 
 module Baseball
 
@@ -66,5 +67,5 @@ module Baseball
     runner = Runner.new(runner_hash)
     runner.stolen_base_percentage
   end
-  
+
 end

@@ -1,13 +1,8 @@
-require 'baseball/helper'
+require 'baseball/player'
 
 module Fielding
 
-  class Fielder
-    include Helper
-    attr_accessor :player_hash
-    def initialize(player_hash)
-      @player = player_hash
-    end
+  class Fielder < Player::PlayerTemplate
 
     def fielding_percentage
       plays = @player[:put_outs] + @player[:assists]

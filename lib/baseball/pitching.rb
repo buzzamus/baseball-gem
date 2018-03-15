@@ -1,20 +1,18 @@
-module Pitching
+require 'baseball/player'
 
-  class Pitcher
-    attr_accessor :pitcher_hash
-    def initialize(pitcher_hash)
-      @pitcher = pitcher_hash
-    end
+module Pitching
+  class Pitcher < Player::PlayerTemplate
+
 
     def era
-      earned_runs = @pitcher[:er] * 9
-      avg = earned_runs / @pitcher[:ip].to_f
+      earned_runs = @player[:er] * 9
+      avg = earned_runs / @player[:ip].to_f
       earned_run_average = avg.round(2)
     end
 
     def whip
-      walks_plus_hits = @pitcher[:walks] + @pitcher[:hits]
-      whip = walks_plus_hits / @pitcher[:ip].to_f
+      walks_plus_hits = @player[:walks] + @player[:hits]
+      whip = walks_plus_hits / @player[:ip].to_f
       whip = whip.round(3)
     end
   end
