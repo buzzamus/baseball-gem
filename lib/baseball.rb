@@ -44,7 +44,7 @@ module Baseball
   end
 
   #pitcher stats
-  
+
   def self.era(pitcher_hash)
     include Pitching
     pitcher = Pitcher.new(pitcher_hash)
@@ -72,5 +72,11 @@ module Baseball
     runner = Runner.new(runner_hash)
     runner.stolen_base_percentage
   end
+
+  def self.stolen_base_runs(runner_hash)
+    include Running
+    runner = Runner.new(runner_hash)
+    runner.stolen_base_runs
+  end 
 
 end

@@ -12,6 +12,11 @@ module Running
     end
 
     def stolen_base_runs
+      stolen_base_adjustment = @player[:stolen_bases].to_f * 0.3
+      caught_stealing_adjustment = @player[:caught_stealing].to_f * 0.6
+      adjusted_stolen_base_runs = stolen_base_adjustment - caught_stealing_adjustment
+      base_runs = adjusted_stolen_base_runs.round(3)
+      return base_runs.to_s
       #Created by Total baseball
       # (.3 x stolen bases) - (.6 x caught stealing)
     end
