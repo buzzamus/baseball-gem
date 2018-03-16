@@ -37,6 +37,17 @@ module Batting
       player_ops_string.to_s
     end
 
+    def base_runs
+      # a = hits + walks - hr
+      # b = (1.4 * totalbases - .6 * hits - 3 * HR + .1 * BB) * 1.02
+      # c = AB - Hits
+      # D = HR
+
+      # x = (A * B) / (B + C)
+      # x + D
+
+    end
+
   end
 
 end

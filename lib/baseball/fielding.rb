@@ -9,7 +9,6 @@ module Fielding
       plays_plus_errors = plays + @player[:errors]
       player_avg = plays.to_f / plays_plus_errors.to_f
       avg = player_avg.round(3)
-      # code smell - make this a several function called somewhere since this is used over multiple stats
       fielding_percentage = avg.to_s.sub!("0", "")
       figure_trailing_zeroes(fielding_percentage)
     end

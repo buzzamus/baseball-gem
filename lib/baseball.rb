@@ -11,6 +11,7 @@ module Baseball
     #batter stats
     #pitcher stats
     # fielder stats
+    # runner stats
 
   def self.version_number
     Baseball::VERSION
@@ -43,6 +44,7 @@ module Baseball
   end
 
   #pitcher stats
+  
   def self.era(pitcher_hash)
     include Pitching
     pitcher = Pitcher.new(pitcher_hash)
@@ -56,11 +58,14 @@ module Baseball
   end
 
   #fielder stats
+
   def self.fielding_percentage(fielder_hash)
     include Fielding
     fielder = Fielder.new(fielder_hash)
     fielder.fielding_percentage
   end
+
+  # runner stats
 
   def self.stolen_base_percentage(runner_hash)
     include Running

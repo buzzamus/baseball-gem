@@ -19,7 +19,7 @@ class TestRunners < Test::Unit::TestCase
     #puts Baseball.stolen_base_percentage(@player)
     #puts Baseball.stolen_base_percentage(@player2)
     assert_equal ".769", Baseball.stolen_base_percentage(@player)
-    assert_equal ".769", Baseball.stolen_base_percentage(@player)
+    assert_equal ".900", Baseball.stolen_base_percentage(@player2)
   end
 
 end
