@@ -8,14 +8,16 @@ module Pitching
       earned_runs = @player[:er] * 9
       avg = earned_runs / @player[:ip].to_f
       earned_run_average = avg.round(2)
+      earned_run_average.to_s
     end
 
     def whip
+      corrected_innings = third_inning_handler(@player[:ip]).to_f
       walks_plus_hits = @player[:walks] + @player[:hits]
-      whip = walks_plus_hits / @player[:ip].to_f
-      whip = whip.round(3)
+      figured_whip = walks_plus_hits / corrected_innings
+      figured_whip = figured_whip.round(3)
+      figured_whip.to_s
     end
   end
-
 
 end

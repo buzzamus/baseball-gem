@@ -77,6 +77,6 @@ module Baseball
     include Running
     runner = Runner.new(runner_hash)
     runner.stolen_base_runs
-  end 
+  end
 
 end

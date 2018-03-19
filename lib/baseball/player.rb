@@ -8,7 +8,7 @@ module Player
 
     def figure_trailing_zeroes(arg)
       revised_number = arg
-      
+
       if revised_number.length === 3
         revised_number = "#{revised_number}0"
       elsif revised_number.length === 2
@@ -16,7 +16,27 @@ module Player
       else
         return revised_number
       end
+    end
 
+    def third_inning_handler(arg)
+      innings = arg
+      innings_string = innings.to_s
+      string_length = innings_string.length
+      final_fig = innings_string[0..(string_length - 2)]
+      final_num = innings_string[(string_length - 2)..string_length]
+      final_num_float = final_num.to_f
+
+      if final_num_float == 0.1
+  	    returnable_innings = final_fig.to_f
+        returnable_innings += 0.33
+        returnable_innings.to_s
+      elsif final_num_float == 0.2
+        returnable_innings = final_fig.to_f
+        returnable_innings += 0.66
+        returnable_innings.to_s
+      else
+        return innings
+      end
     end
 
   end

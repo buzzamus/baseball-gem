@@ -11,25 +11,29 @@ class TestPitchers < Test::Unit::TestCase
       walks: 47,
       hits: 183
     }
+
+    @pitcher2 = {
+      er: 39,
+      ip: 198.1,
+      walks: 31,
+      hits: 139
+    }
   end
 
-  test "pitchers ERA should be correct" do
+  test "pitchers ERA should be correct and account for third of innings properly" do
     #puts Baseball.era(@pitcher)
-    assert_equal 3.34, Baseball.era(@pitcher)
+    assert_equal "3.34", Baseball.era(@pitcher)
+    assert_equal "1.77", Baseball.era(@pitcher2)
   end
 
-  test "pitchers WHIP should be correct" do
+  test "pitchers WHIP should be correct and account for third of innings properly" do
     #puts Baseball.whip(@pitcher)
-    assert_equal 1.122, Baseball.whip(@pitcher)
-  end
-
-  test "pitchers ERA should account for third of innings pitched" do
-    #logic for testing in situations with .1 and .2 of an inning pitched
-    #need to convert into thirds
+    #puts Baseball.whip(@pitcher2)
+    assert_equal "1.122", Baseball.whip(@pitcher)
   end
 
   test "pitchers k/9 should be valid" do
-    #k/9 test logic here 
+    #k/9 test logic here
   end
 
 end
