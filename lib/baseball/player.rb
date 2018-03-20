@@ -18,19 +18,16 @@ module Player
       end
     end
 
-    def third_inning_handler(arg)
-      innings = arg
+    def third_inning_handler(innings)
       innings_string = innings.to_s
-      string_length = innings_string.length
-      final_fig = innings_string[0..(string_length - 2)]
-      final_num = innings_string[(string_length - 2)..string_length]
-      final_num_float = final_num.to_f
+      final_fig = innings_string[0..(innings_string.length - 2)]
+      final_num = innings_string[(innings_string.length - 2)..innings_string.length].to_f
 
-      if final_num_float == 0.1
+      if final_num == 0.1
   	    returnable_innings = final_fig.to_f
         returnable_innings += 0.33
         returnable_innings.to_s
-      elsif final_num_float == 0.2
+      elsif final_num == 0.2
         returnable_innings = final_fig.to_f
         returnable_innings += 0.66
         returnable_innings.to_s

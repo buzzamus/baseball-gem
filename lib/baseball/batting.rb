@@ -21,10 +21,7 @@ module Batting
     end
 
     def slugging_percentage
-      player_doubles = @player[:doubles] * 2
-      player_triples = @player[:triples] * 3
-      player_hr = @player[:hr] * 4
-      total_bases = @player[:singles] + player_doubles + player_triples + player_hr
+      total_bases = @player[:singles] + (@player[:doubles] * 2) + (@player[:triples] * 3) + @player[:hr] * 4
       slg = total_bases.to_f / @player[:at_bats].to_f
       slg = slg.round(3)
       slg_string = slg.to_s.sub!("0", "")
@@ -34,7 +31,12 @@ module Batting
     def ops
       player_ops = self.obp.to_f + self.slugging_percentage.to_f
       player_ops_string = player_ops.round(3)
-      player_ops_string.to_s
+      player_ops_string = player_ops_string.to_s
+      if player_ops_string[0] === "0"
+        player_ops_string.to_s.sub!("0", "")
+      else
+        return player_ops_string
+      end
     end
 
     def base_runs
@@ -45,7 +47,6 @@ module Batting
 
       # x = (A * B) / (B + C)
       # x + D
-
     end
 
   end
