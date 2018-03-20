@@ -57,6 +57,12 @@ module Baseball
     pitcher.whip
   end
 
+  def self.k_per_nine(pitcher_hash)
+    include Pitching
+    pitcher = Pitcher.new(pitcher_hash)
+    pitcher.k_per_nine
+  end
+
   #fielder stats
 
   def self.fielding_percentage(fielder_hash)
