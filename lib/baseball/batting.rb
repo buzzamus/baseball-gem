@@ -7,8 +7,7 @@ module Batting
     def batting_average
       avg = @player[:hits].to_f / @player[:at_bats].to_f
       player_average = avg.round(3)
-      batting_average_string = player_average.to_s.sub!("0", "")
-      figure_trailing_zeroes(batting_average_string)
+      figure_lead_and_trailing_zeroes(player_average)
     end
 
     def obp
@@ -16,16 +15,14 @@ module Batting
       times_at_plate = @player[:at_bats].to_f + @player[:walks].to_f + @player[:hbp].to_f + @player[:sac_flies]
       obp = times_on_base.to_f / times_at_plate.to_f
       player_obp = obp.round(3)
-      player_obp_string = player_obp.to_s.sub!("0", "")
-      figure_trailing_zeroes(player_obp_string)
+      figure_lead_and_trailing_zeroes(player_obp)
     end
 
     def slugging_percentage
       total_bases = @player[:singles] + (@player[:doubles] * 2) + (@player[:triples] * 3) + @player[:hr] * 4
       slg = total_bases.to_f / @player[:at_bats].to_f
       slg = slg.round(3)
-      slg_string = slg.to_s.sub!("0", "")
-      figure_trailing_zeroes(slg_string)
+      figure_lead_and_trailing_zeroes(slg)
     end
 
     def ops
@@ -33,7 +30,7 @@ module Batting
       player_ops_string = player_ops.round(3)
       player_ops_string = player_ops_string.to_s
       if player_ops_string[0] === "0"
-        player_ops_string.to_s.sub!("0", "")
+        remove_leading_zero(player_ops_string)
       else
         return player_ops_string
       end

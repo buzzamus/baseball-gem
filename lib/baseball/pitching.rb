@@ -12,7 +12,7 @@ module Pitching
     end
 
     def whip
-      corrected_innings = third_inning_handler(@player[:ip]).to_f
+      corrected_innings = third_of_an_inning_handler(@player[:ip]).to_f
       walks_plus_hits = @player[:walks] + @player[:hits]
       figured_whip = walks_plus_hits / corrected_innings
       figured_whip = figured_whip.round(3)
