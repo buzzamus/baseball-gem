@@ -32,20 +32,9 @@ module Batting
       if player_ops_string[0] === "0"
         remove_leading_zero(player_ops_string)
       else
-        return player_ops_string
+        player_ops_string
       end
     end
-
-    def base_runs
-      # a = hits + walks - hr
-      # b = (1.4 * totalbases - .6 * hits - 3 * HR + .1 * BB) * 1.02
-      # c = AB - Hits
-      # D = HR
-
-      # x = (A * B) / (B + C)
-      # x + D
-    end
-
   end
 
 end
