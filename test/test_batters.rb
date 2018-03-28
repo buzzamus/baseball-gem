@@ -4,17 +4,17 @@ require 'baseball'
 class TestBatters < Test::Unit::TestCase
 
   def setup
-    #full 3 digit BA
+    #full 3 digit BA test
     @player_hash_1 = {
       at_bats: 602,
       hits: 204
     }
-    #2 digit BA that needs 0 added
+    #2 digit BA that tests 0 added
     @player_hash_2 = {
       at_bats: 400,
       hits: 100
     }
-    #1 digit BA that needs 2 0's added
+    #1 digit BA that tests 2 0's added
     @player_hash_3 = {
       at_bats: 500,
       hits: 100
@@ -66,9 +66,8 @@ class TestBatters < Test::Unit::TestCase
       doubles: 18,
       triples: 2,
       hr: 14
-      # 141 154 - 21714 / 447 = 48.58
     }
-    #runs created test
+
     @player_hash_8 = {
       at_bats: 565,
       walks: 66,
