@@ -35,6 +35,15 @@ module Batting
         player_ops_string
       end
     end
+
+    def runs_created
+      opportunities = @player[:at_bats] + @player[:walks]
+      times_on_base = @player[:hits] + @player[:walks]
+      total_bases = @player[:singles] + (@player[:doubles] * 2) + (@player[:triples] * 3) + @player[:hr] * 4
+      total_production = total_bases * times_on_base
+      runs_created_figure = total_production.to_f / opportunities.to_f
+      runs_created_figure.round(2).to_s
+    end
   end
 
 end

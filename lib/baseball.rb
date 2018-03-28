@@ -8,10 +8,10 @@ require 'baseball/player'
 module Baseball
 
   #table of contents
-    #batter stats
-    #pitcher stats
-    # fielder stats
-    # runner stats
+    #batting stats
+    #pitching stats
+    # fielding stats
+    # running stats
 
   def self.version_number
     Baseball::VERSION
@@ -43,7 +43,13 @@ module Baseball
     player.ops
   end
 
-  #pitcher stats
+  def self.runs_created(player_hash)
+    include Batting
+    player = Batter.new(player_hash)
+    player.runs_created
+  end 
+
+  #pitching stats
 
   def self.era(pitcher_hash)
     include Pitching
@@ -63,7 +69,7 @@ module Baseball
     pitcher.k_per_nine
   end
 
-  #fielder stats
+  #fielding stats
 
   def self.fielding_percentage(fielder_hash)
     include Fielding
@@ -71,7 +77,7 @@ module Baseball
     fielder.fielding_percentage
   end
 
-  # runner stats
+  # running stats
 
   def self.stolen_base_percentage(runner_hash)
     include Running

@@ -40,15 +40,12 @@ class TestPitchers < Test::Unit::TestCase
   end
 
   test "pitchers ERA should be correct and account for third of innings properly" do
-    #puts Baseball.era(@pitcher)
     assert_equal "3.34", Baseball.era(@pitcher)
     assert_equal "1.77", Baseball.era(@pitcher2)
     assert_equal "3.25", Baseball.era(@pitcher3)
   end
 
   test "pitchers WHIP should be correct and account for third of innings properly" do
-    #puts Baseball.whip(@pitcher)
-    #puts Baseball.whip(@pitcher2)
     assert_equal "1.122", Baseball.whip(@pitcher)
     assert_equal "0.857", Baseball.whip(@pitcher2)
     assert_equal "1.202", Baseball.whip(@pitcher3)
@@ -56,7 +53,6 @@ class TestPitchers < Test::Unit::TestCase
   end
 
   test "pitchers k/9 should be valid" do
-    #puts Baseball.k_per_nine(@pitcher)
     assert_equal "9.1", Baseball.k_per_nine(@pitcher)
     assert_equal "10.9", Baseball.k_per_nine(@pitcher2)
     assert_equal "9.7", Baseball.k_per_nine(@pitcher3)

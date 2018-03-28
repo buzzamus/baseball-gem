@@ -25,7 +25,6 @@ class TestFielders < Test::Unit::TestCase
   end
 
   test "fielding percentage should be accurate" do
-    #puts Baseball.fielding_percentage(@fielder)
     assert_equal ".990", Baseball.fielding_percentage(@fielder)
     assert_equal ".953", Baseball.fielding_percentage(@fielder2)
     assert_equal ".909", Baseball.fielding_percentage(@fielder3)

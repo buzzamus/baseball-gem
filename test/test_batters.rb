@@ -66,11 +66,21 @@ class TestBatters < Test::Unit::TestCase
       doubles: 18,
       triples: 2,
       hr: 14
+      # 141 154 - 21714 / 447 = 48.58
+    }
+    #runs created test
+    @player_hash_8 = {
+      at_bats: 565,
+      walks: 66,
+      hits: 195,
+      singles: 106,
+      doubles: 40,
+      triples: 5,
+      hr: 44
     }
   end
 
   test "player batting average should be correct" do
-    #puts Baseball.batting_average(@player_hash_1)
     assert_equal ".339", Baseball.batting_average(@player_hash_1)
     assert_equal ".250", Baseball.batting_average(@player_hash_2)
     assert_equal ".200", Baseball.batting_average(@player_hash_3)
@@ -80,25 +90,27 @@ class TestBatters < Test::Unit::TestCase
   end
 
   test "obp should be figured correctly" do
-    #puts Baseball.obp(@player_hash_4)
     assert_equal ".413", Baseball.obp(@player_hash_4)
     assert_equal ".385", Baseball.obp(@player_hash_5)
     assert_equal ".422", Baseball.obp(@player_hash_6)
   end
 
   test "slugging percentage should be figured correctly" do
-    #puts Baseball.slg(@player_hash_4)
     assert_equal ".595", Baseball.slg(@player_hash_4)
     assert_equal ".554", Baseball.slg(@player_hash_5)
     assert_equal ".627", Baseball.slg(@player_hash_6)
   end
 
   test "OPS should be figured by obp and slg" do
-    #puts Baseball.ops(@player_hash_4)
     assert_equal "1.008", Baseball.ops(@player_hash_4)
     assert_equal ".939", Baseball.ops(@player_hash_5)
     assert_equal "1.049", Baseball.ops(@player_hash_6)
     assert_equal ".708", Baseball.ops(@player_hash_7)
+  end
+
+  test "runs created should be figured correctly" do
+    assert_equal "48.58", Baseball.runs_created(@player_hash_7)
+    assert_equal "155.94", Baseball.runs_created(@player_hash_8)
   end
 
 end
