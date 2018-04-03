@@ -1,7 +1,6 @@
 require 'baseball/player'
 
 module Running
-
   class Runner < Player::PlayerTemplate
 
     def stolen_base_percentage

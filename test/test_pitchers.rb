@@ -37,12 +37,27 @@ class TestPitchers < Test::Unit::TestCase
       so: 197
     }
 
+    @pitcher5 = {
+      er: 1,
+      ip: 6.0
+    }
+
+    @pitcher6 = {
+      er: 1,
+      ip: 9.0,
+      walks: 0,
+      hits: 9,
+      so: 9
+    }
+
   end
 
   test "pitchers ERA should be correct and account for third of innings properly" do
     assert_equal "3.34", Baseball.era(@pitcher)
     assert_equal "1.77", Baseball.era(@pitcher2)
     assert_equal "3.25", Baseball.era(@pitcher3)
+    assert_equal "1.50", Baseball.era(@pitcher5)
+    assert_equal "1.00", Baseball.era(@pitcher6)
   end
 
   test "pitchers WHIP should be correct and account for third of innings properly" do
@@ -50,6 +65,7 @@ class TestPitchers < Test::Unit::TestCase
     assert_equal "0.857", Baseball.whip(@pitcher2)
     assert_equal "1.202", Baseball.whip(@pitcher3)
     assert_equal "1.016", Baseball.whip(@pitcher4)
+    assert_equal "1.000", Baseball.whip(@pitcher6)
   end
 
   test "pitchers k/9 should be valid" do
@@ -57,6 +73,17 @@ class TestPitchers < Test::Unit::TestCase
     assert_equal "10.9", Baseball.k_per_nine(@pitcher2)
     assert_equal "9.7", Baseball.k_per_nine(@pitcher3)
     assert_equal "8.8", Baseball.k_per_nine(@pitcher4)
+    assert_equal "9.0", Baseball.k_per_nine(@pitcher6)
+  end
+
+  test "pitchers bb/9 should be valid" do
+    assert_equal "2.1", Baseball.bb_per_nine(@pitcher)
+    assert_equal "1.4", Baseball.bb_per_nine(@pitcher2)
+  end
+
+  test "pitchers bb/k should be valid" do
+    assert_equal "4.40", Baseball.so_per_bb(@pitcher)
+    assert_equal "7.71", Baseball.so_per_bb(@pitcher2)
   end
 
 end

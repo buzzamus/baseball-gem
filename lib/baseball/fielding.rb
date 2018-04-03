@@ -1,7 +1,6 @@
 require 'baseball/player'
 
 module Fielding
-
   class Fielder < Player::PlayerTemplate
 
     def fielding_percentage

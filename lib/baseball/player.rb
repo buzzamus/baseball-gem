@@ -38,6 +38,13 @@ module Player
       arg.to_s.sub("0", "")
     end
 
-  end
+    def figure_trailing_zero(arg)
+      sprintf "%.2f", arg
+    end
 
+    def figure_multiple_trailing_zeroes(arg)
+      sprintf "%.3f", arg
+    end
+
+  end
 end

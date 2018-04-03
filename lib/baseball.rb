@@ -47,7 +47,7 @@ module Baseball
     include Batting
     player = Batter.new(player_hash)
     player.runs_created
-  end 
+  end
 
   #pitching stats
 
@@ -67,6 +67,18 @@ module Baseball
     include Pitching
     pitcher = Pitcher.new(pitcher_hash)
     pitcher.k_per_nine
+  end
+
+  def self.bb_per_nine(pitcher_hash)
+    include Pitching
+    pitcher = Pitcher.new(pitcher_hash)
+    pitcher.bb_per_nine
+  end
+
+  def self.so_per_bb(pitcher_hash)
+    include Pitching
+    pitcher = Pitcher.new(pitcher_hash)
+    pitcher.so_per_bb
   end
 
   #fielding stats

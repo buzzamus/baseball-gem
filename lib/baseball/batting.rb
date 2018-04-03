@@ -1,7 +1,6 @@
 require 'baseball/player'
 
 module Batting
-
   class Batter < Player::PlayerTemplate
 
     def batting_average
