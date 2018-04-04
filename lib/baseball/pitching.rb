@@ -2,7 +2,6 @@ require 'baseball/player'
 
 module Pitching
   class Pitcher < Player::PlayerTemplate
-
     def era
       earned_runs = @player[:er] * 9
       avg = earned_runs / @player[:ip].to_f
@@ -35,7 +34,5 @@ module Pitching
       ratio.round(2)
       figure_trailing_zero(ratio)
     end
-
   end
-
 end
