@@ -2,7 +2,6 @@ require 'baseball/player'
 
 module Batting
   class Batter < Player::PlayerTemplate
-
     def batting_average
       avg = @player[:hits].to_f / @player[:at_bats].to_f
       player_average = avg.round(3)

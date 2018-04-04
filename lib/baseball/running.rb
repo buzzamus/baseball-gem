@@ -2,7 +2,6 @@ require 'baseball/player'
 
 module Running
   class Runner < Player::PlayerTemplate
-
     def stolen_base_percentage
       player_stolen_base_percentage = @player[:stolen_bases].to_f / (@player[:stolen_bases ].to_f + @player[:caught_stealing].to_f)
       stealing_average = player_stolen_base_percentage.round(3)
@@ -16,5 +15,4 @@ module Running
       adjusted_stolen_base_runs.round(3).to_s
     end
   end
-
 end
