@@ -25,6 +25,8 @@ Or install it yourself as:
 
 ## Usage
 
+### Version 1 (1.3.0 and lower)
+
 All methods in `Baseball` take a hash as an argument. The hash should contain all the
 key-value pairs needed for the specific method called.
 
@@ -75,6 +77,36 @@ All values are returned as a string
 
 Libary includes pitching, fielding, running, and batting stats. See tests for full hash key-values needed.
 (More detailed documentation will be added shortly)
+
+### version 2 (Ruby Gem not yet released)
+
+include a hash with all the key-value pairs desired for each individual statistic into `Baseball.create()`
+
+You can then call each method in the object.
+
+example:
+
+```ruby
+your_player_hash = {
+  at_bats: 420,
+  hits: 134,
+  walks: 68,
+  hbp: 1,
+  sac_flies: 3,
+  singles: 77,
+  doubles: 27,
+  triples: 1,
+  hr: 29
+}
+
+player = Baseball.create(your_player_hash)
+
+player.batting_average # => ".319"
+player.obp # => ".413"
+player.ops # => "1.008"
+
+```
+
 
 ## Development
 
