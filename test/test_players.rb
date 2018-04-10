@@ -91,7 +91,6 @@ class TestPlayers < Test::Unit::TestCase
       triples: 5,
       hr: 44
     }
-
     # jon lester, 2015 courtesy of baseball-reference
     pitcher = {
       er: 76,
@@ -137,20 +136,20 @@ class TestPlayers < Test::Unit::TestCase
       hits: 9,
       so: 9
     }
-    @player1 = Baseball.create(player_hash1)
-    @player2 = Baseball.create(player_hash2)
-    @player3 = Baseball.create(player_hash3)
-    @player4 = Baseball.create(player_hash4)
-    @player5 = Baseball.create(player_hash5)
-    @player6 = Baseball.create(player_hash6)
-    @player7 = Baseball.create(player_hash7)
-    @player8 = Baseball.create(player_hash8)
-    @pitcher = Baseball.create(pitcher)
-    @pitcher2 = Baseball.create(pitcher2)
-    @pitcher3 = Baseball.create(pitcher3)
-    @pitcher4 = Baseball.create(pitcher4)
-    @pitcher5 = Baseball.create(pitcher5)
-    @pitcher6 = Baseball.create(pitcher6)
+    @player1 = Baseball.compile(player_hash1)
+    @player2 = Baseball.compile(player_hash2)
+    @player3 = Baseball.compile(player_hash3)
+    @player4 = Baseball.compile(player_hash4)
+    @player5 = Baseball.compile(player_hash5)
+    @player6 = Baseball.compile(player_hash6)
+    @player7 = Baseball.compile(player_hash7)
+    @player8 = Baseball.compile(player_hash8)
+    @pitcher = Baseball.compile(pitcher)
+    @pitcher2 = Baseball.compile(pitcher2)
+    @pitcher3 = Baseball.compile(pitcher3)
+    @pitcher4 = Baseball.compile(pitcher4)
+    @pitcher5 = Baseball.compile(pitcher5)
+    @pitcher6 = Baseball.compile(pitcher6)
   end
 
   test "a player can be instantiated with a statistic" do
@@ -159,11 +158,14 @@ class TestPlayers < Test::Unit::TestCase
 
   test "player batting average should be correct" do
     assert_equal ".339", @player1.batting_average
-    assert_equal ".250", @player2.batting_average
-    assert_equal ".200", @player3.batting_average
     assert_equal ".319", @player4.batting_average
     assert_equal ".292", @player5.batting_average
     assert_equal ".284", @player6.batting_average
+  end
+
+  test "player batting average should handle trailing zeroes" do
+    assert_equal ".250", @player2.batting_average
+    assert_equal ".200", @player3.batting_average
   end
 
   test "obp should be figured correctly" do
@@ -185,7 +187,7 @@ class TestPlayers < Test::Unit::TestCase
     assert_equal ".708", @player7.ops
   end
 
-  test "runs created should be figured correctly" do
+  test "runs compiled should be figured correctly" do
     assert_equal "48.58", @player7.runs_created
     assert_equal "155.94", @player8.runs_created
   end
@@ -198,8 +200,11 @@ class TestPlayers < Test::Unit::TestCase
 
   test "base running percentage should be accurate" do
     assert_equal ".769", @player1.stolen_base_percentage
-    assert_equal ".900", @player2.stolen_base_percentage
     assert_equal ".820", @player3.stolen_base_percentage
+  end
+
+  test "base running percentage should figure trailing zeroes" do
+    assert_equal ".900", @player2.stolen_base_percentage
   end
 
   test "stolen base runs should be accurate" do
@@ -207,18 +212,27 @@ class TestPlayers < Test::Unit::TestCase
     assert_equal "2.1", @player2.stolen_base_runs
   end
 
-  test "pitchers ERA should be correct and account for third of innings properly" do
+  test "pitchers ERA should be correct and figure third of innings properly" do
     assert_equal "3.34", @pitcher.era
     assert_equal "1.77", @pitcher2.era
     assert_equal "3.25", @pitcher3.era
+  end
+
+  test "pitchers ERA should figure trailing zeroes" do
     assert_equal "1.50", @pitcher5.era
     assert_equal "1.00", @pitcher6.era
   end
 
-  test "pitchers WHIP should be correct and account for third of innings properly" do
+  test "pitchers WHIP should be correct and figure third of innings properly" do
     assert_equal "1.122", @pitcher.whip
-    assert_equal "0.857", @pitcher2.whip
     assert_equal "1.202", @pitcher3.whip
+  end
+
+  test "pitchers WHIP should figure zero whole number correctly" do
+    assert_equal "0.857", @pitcher2.whip
+  end
+
+  test "pitchers WHIP should figure trailing zeroes" do
     assert_equal "1.016", @pitcher4.whip
     assert_equal "1.000", @pitcher6.whip
   end
@@ -228,6 +242,9 @@ class TestPlayers < Test::Unit::TestCase
     assert_equal "10.9", @pitcher2.k_per_nine
     assert_equal "9.7", @pitcher3.k_per_nine
     assert_equal "8.8", @pitcher4.k_per_nine
+  end
+
+  test "pitchers k/9 should figure trailing zero correctly" do
     assert_equal "9.0", @pitcher6.k_per_nine
   end
 

@@ -7,7 +7,7 @@ module Baseball
     Baseball::VERSION
   end
 
-  def self.create(arg)
+  def self.compile(arg)
     Player.new(arg)
   end
 end
