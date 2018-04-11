@@ -42,4 +42,14 @@ module PlayerHelper
   def figure_multiple_trailing_zeroes(arg)
     format "%.3f", arg
   end
+
+  # figures and sets default value of singles if not included by user
+  def figure_singles
+    hits - (doubles + triples + hr)
+  end
+  
+  # figures and sets default value of hits if not included by user
+  def figure_hits
+    singles + doubles + triples + hr
+  end
 end

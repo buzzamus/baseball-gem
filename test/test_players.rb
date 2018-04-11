@@ -156,6 +156,30 @@ class TestPlayers < Test::Unit::TestCase
     assert_equal @player1.class, Player::Player
   end
 
+  test "player should have singles figured automatically if not included" do
+    stats = {
+      at_bats: 500,
+      hits: 200,
+      doubles: 40,
+      triples: 3,
+      hr: 37
+    }
+    player = Baseball.compile(stats)
+    assert_equal 120, player.singles
+  end
+
+  test "player should have hits figured automatically if not included" do
+    stats = {
+      at_bats: 500,
+      singles: 120,
+      doubles: 40,
+      triples: 3,
+      hr: 37
+    }
+    player = Baseball.compile(stats)
+    assert_equal 200, player.hits
+  end
+
   test "player batting average should be correct" do
     assert_equal ".339", @player1.batting_average
     assert_equal ".319", @player4.batting_average

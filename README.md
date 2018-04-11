@@ -5,7 +5,7 @@ This Ruby gem contains a pre-created library for factoring baseball statistics.
 * Gem is still in development with more stats to be added.
 
 * Note: This project is in no way taking credit for creating any of the included baseball stats.
-This is a library created strictly to be used in easily figuring the included statistics based on the data received by the user.
+This is a library created strictly to be used for easily figuring the included statistics based on the data received by the user.
 
 ## Installation
 
@@ -80,9 +80,9 @@ Libary includes pitching, fielding, running, and batting stats. See tests for fu
 
 ### version 2 (Ruby Gem not yet released)
 
-include a hash with all the key-value pairs desired for each individual statistic into `Baseball.create()`
+include a hash with all the key-value pairs desired for each individual statistic into `Baseball.compile()`
 
-You can then call each method in the object.
+The result is an object with all statistics based off of the hash passed as the argument. You can then call each method in the object.
 
 example:
 
@@ -99,7 +99,7 @@ your_player_hash = {
   hr: 29
 }
 
-player = Baseball.create(your_player_hash)
+player = Baseball.compile(your_player_hash)
 
 player.batting_average # => ".319"
 player.obp # => ".413"
@@ -107,6 +107,7 @@ player.ops # => "1.008"
 
 ```
 
+note: each specific stats' required values must be passed, or you will not receive the correct result. For instance, if you try to get batting statistics, but only entered pitching values into your hash you will not receive correct results.
 
 ## Development
 
