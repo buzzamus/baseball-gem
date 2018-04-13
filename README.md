@@ -107,7 +107,12 @@ player.ops # => "1.008"
 
 ```
 
-note: each specific stats' required values must be passed, or you will not receive the correct result. For instance, if you try to get batting statistics, but only entered pitching values into your hash you will not receive correct results.
+notes:
+
+* each specific stats' required values must be passed, or you will not receive the correct result. For instance, if you try to get batting statistics, but only entered pitching values into your hash you will not receive correct results.
+
+* since pitchers and batters share some stats (hits, walks) you will want to create two separate object records
+(one for batting, one for pitching) for pitchers that bat.
 
 ## Development
 

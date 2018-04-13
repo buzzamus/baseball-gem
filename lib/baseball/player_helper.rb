@@ -1,5 +1,5 @@
 module PlayerHelper
-  # if adds additional zeroes to follow baseball stats. ex: .300 vs. .3
+  # adds additional zeroes to follow baseball stats. ex: .300 vs. .3
   def figure_lead_and_trailing_zeroes(arg)
     revised_number = remove_leading_zero(arg)
 
@@ -12,21 +12,25 @@ module PlayerHelper
     end
   end
 
-  # converts .0, .1, and .2 innings entered to actual third of innings
+  # cuts ERA into whole number, decimal for format manipulation
   def third_of_an_inning_handler(innings)
     innings_string = innings.to_s
-    final_fig = innings_string[0..(innings_string.length - 2)]
-    final_num = innings_string[(innings_string.length - 2)..innings_string.length].to_f
-    returnable_innings = final_fig.to_f
+    whole_innings = innings_string[0..(innings_string.length - 2)]
+    decimal_num = innings_string[(innings_string.length - 2)..innings_string.length].to_f
+    whole_innings_string = whole_innings.to_f
+    convert_third_of_inning(decimal_num, whole_innings_string, innings)
+  end
 
-    if final_num == 0.1
-      returnable_innings += 0.33
-      returnable_innings.to_s
-    elsif final_num == 0.2
-      returnable_innings += 0.66
-      returnable_innings.to_s
+  # converts .0, .1, and .2 innings entered to actual third of innings
+  def convert_third_of_inning(decimal, whole_num, original)
+    if decimal == 0.1
+      whole_num += 0.33
+      whole_num.to_s
+    elsif decimal == 0.2
+      whole_num += 0.66
+      whole_num.to_s
     else
-      innings
+      original
     end
   end
 
@@ -41,15 +45,5 @@ module PlayerHelper
 
   def figure_multiple_trailing_zeroes(arg)
     format "%.3f", arg
-  end
-
-  # figures and sets default value of singles if not included by user
-  def figure_singles
-    hits - (doubles + triples + hr)
-  end
-  
-  # figures and sets default value of hits if not included by user
-  def figure_hits
-    singles + doubles + triples + hr
   end
 end

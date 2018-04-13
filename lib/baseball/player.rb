@@ -2,29 +2,22 @@ module Player
   require 'baseball/player_helper'
   class Player
     include PlayerHelper
-    attr_accessor :at_bats, :hits, :walks, :hbp, :sac_flies, :singles, :doubles,
-                  :triples, :hr, :put_outs, :assists, :errors, :er, :ip, :so,
-                  :stolen_bases, :caught_stealing
+    STATS = %i[
+      at_bats hits walks hbp sac_flies singles
+      doubles triples hr put_outs assists errors
+      er ip so stolen_bases caught_stealing
+    ]
+
+    attr_accessor(*STATS)
+
     def initialize(hash)
-      @at_bats = hash.fetch(:at_bats, 0)
-      @walks = hash.fetch(:walks, 0)
-      @hbp = hash.fetch(:hbp, 0)
-      @sac_flies = hash.fetch(:sac_flies, 0)
-      @doubles = hash.fetch(:doubles, 0)
-      @triples = hash.fetch(:triples, 0)
-      @hr = hash.fetch(:hr, 0)
-      @put_outs = hash.fetch(:put_outs, 0)
-      @assists = hash.fetch(:assists, 0)
-      @errors = hash.fetch(:errors, 0)
-      @er = hash.fetch(:er, 0)
-      @ip = hash.fetch(:ip, 0)
-      @walks = hash.fetch(:walks, 0)
-      @hits = hash.fetch(:hits, 0)
-      @so = hash.fetch(:so, 0)
-      @stolen_bases = hash.fetch(:stolen_bases, 0)
-      @caught_stealing = hash.fetch(:caught_stealing, 0)
-      @singles = hash.fetch(:singles, figure_singles)
-      @hits = hash.fetch(:hits, figure_hits)
+      STATS.each do |iv|
+        if iv != :singles
+          instance_variable_set("@#{iv}", hash.fetch(iv, 0))
+        end
+      end
+      # figures and sets default value of singles if not included by user
+      @singles ||= @hits - (@doubles + @triples + @hr)
     end
 
     def batting_average
@@ -59,12 +52,20 @@ module Player
     end
 
     def runs_created
-      opportunities = at_bats + walks
-      times_on_base = hits + walks
-      total_bases = singles + (doubles * 2) + (triples * 3) + hr * 4
-      total_production = total_bases * times_on_base
-      runs_created_figure = total_production.to_f / opportunities.to_f
+      total_production = (singles + (doubles * 2) + (triples * 3) + hr * 4) * (hits + walks)
+      runs_created_figure = total_production.to_f / (at_bats + walks).to_f
       runs_created_figure.round(2).to_s
+    end
+
+    def iso
+      isolated_power = slg.to_f - batting_average.to_f
+      isolated_power = figure_lead_and_trailing_zeroes(isolated_power.round(3))
+      # check whole number is not 0, if so, figure extra zeroes
+      if isolated_power[0] > "0"
+        figure_multiple_trailing_zeroes(isolated_power)
+      else
+        isolated_power
+      end
     end
 
     def fielding_percentage
