@@ -53,4 +53,16 @@ class TestPitchers < Test::Unit::TestCase
     assert_equal "4.40", @pitcher.so_per_bb
     assert_equal "7.71", @pitcher2.so_per_bb
   end
+
+  # tests fix for a found glitch with rounding
+  test "rounding era two digits should be correct with small amount of data" do
+    stats = {
+      ip: 14.1,
+      hits: 17,
+      er: 7,
+      walks: 7,
+      so: 11
+    }
+    assert_equal "4.40", Baseball.compile(stats).era
+  end
 end

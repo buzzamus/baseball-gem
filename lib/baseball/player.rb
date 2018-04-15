@@ -91,7 +91,8 @@ module Player
 
     def era
       earned_runs = er * 9
-      avg = earned_runs / ip.to_f
+      innings = third_of_an_inning_handler(ip)
+      avg = earned_runs / innings.to_f
       avg.round(2)
       figure_trailing_zero(avg)
     end
