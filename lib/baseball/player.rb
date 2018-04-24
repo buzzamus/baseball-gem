@@ -45,7 +45,7 @@ module Player
       player_ops_string = player_ops.round(3)
       player_ops_string = player_ops_string.to_s
       if player_ops_string[0] == "0"
-        remove_leading_zero(player_ops_string)
+        figure_lead_and_trailing_zeroes(player_ops_string)
       else
         player_ops_string
       end

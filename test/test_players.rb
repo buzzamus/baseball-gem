@@ -43,10 +43,33 @@ class TestPlayers < Test::Unit::TestCase
     assert_equal ".422", @player6.obp
   end
 
+  test "obp should figure trailing zeroes correctly" do
+    stats = {
+      hits: 100,
+      at_bats: 500
+    }
+    assert_equal ".200", Baseball.compile(stats).obp
+  end
+
   test "slugging percentage should be figured correctly" do
     assert_equal ".595", @player4.slg
     assert_equal ".554", @player5.slg
     assert_equal ".627", @player6.slg
+  end
+
+  test "slugging percentage should figure trailing zeroes correctly" do
+    stats = {
+      at_bats: 602,
+      hits: 147,
+      doubles: 22,
+      triples: 0,
+      hr: 40,
+      singles: 85,
+      walks: 50,
+      hbp: 6,
+      sac_flies: 3
+    }
+    assert_equal ".480", Baseball.compile(stats).slg
   end
 
   test "OPS should be figured by obp and slg" do
@@ -54,6 +77,22 @@ class TestPlayers < Test::Unit::TestCase
     assert_equal ".939", @player5.ops
     assert_equal "1.049", @player6.ops
     assert_equal ".708", @player7.ops
+  end
+
+  test "OPS should figure trailing zeroes correctly" do
+    stats = {
+      at_bats: 500,
+      hits: 100,
+      walks: 45,
+      hbp: 3,
+      sac_flies: 1,
+      singles: 100,
+      doubles: 0,
+      triples: 0,
+      hr: 0
+    }
+    low_ops = Baseball.compile(stats).ops
+    assert_equal ".470", low_ops
   end
 
   test "runs compiled should be figured correctly" do
