@@ -47,7 +47,7 @@ module Player
       if player_ops_string[0] == "0"
         figure_lead_and_trailing_zeroes(player_ops_string)
       else
-        player_ops_string
+        figure_multiple_trailing_zeroes(player_ops_string)
       end
     end
 

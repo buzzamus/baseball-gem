@@ -1,8 +1,8 @@
 require 'test/unit'
 require 'baseball'
-require 'test_helper'
+require 'pitcher_helper'
 class TestPitchers < Test::Unit::TestCase
-  include TestHelper
+  include PitcherHelper
 
   test "a player can be instantiated with a statistic" do
     assert_equal @pitcher.class, Player::Player

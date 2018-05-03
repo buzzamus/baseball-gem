@@ -1,8 +1,8 @@
 require 'test/unit'
 require 'baseball'
-require 'test_helper'
+require 'player_helper'
 class TestPlayers < Test::Unit::TestCase
-  include TestHelper
+  include PlayerHelper
 
   test "a new player should match Player class" do
     assert_equal @player1.class, Player::Player
@@ -93,6 +93,22 @@ class TestPlayers < Test::Unit::TestCase
     }
     low_ops = Baseball.compile(stats).ops
     assert_equal ".470", low_ops
+  end
+
+  test "OPS of whole number should still give 3 decimal zeroes" do
+    stats = {
+      walks: 90,
+      hits: 192,
+      singles: 100,
+      doubles: 44,
+      triples: 4,
+      hr: 43,
+      at_bats: 621,
+      hbp: 4,
+      sac_flies: 2
+    }
+    whole_ops = Baseball.compile(stats).ops
+    assert_equal "1.000", whole_ops
   end
 
   test "runs compiled should be figured correctly" do
