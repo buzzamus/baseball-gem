@@ -1,4 +1,4 @@
-# Baseball
+# Baseball  [![Gem Version](https://badge.fury.io/rb/baseball.svg)](https://badge.fury.io/rb/baseball)
 
 This Ruby gem contains a pre-created library for factoring baseball statistics.
 
