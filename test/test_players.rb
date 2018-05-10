@@ -150,4 +150,11 @@ class TestPlayers < Test::Unit::TestCase
     assert_equal "2.4", @player1.stolen_base_runs
     assert_equal "2.1", @player2.stolen_base_runs
   end
+
+  test "BABIP should be correct" do
+    assert_equal ".356", @player4.babip
+    assert_equal ".332", @player5.babip
+    assert_equal ".357", @player6.babip
+    assert_equal ".260", @player7.babip
+  end
 end

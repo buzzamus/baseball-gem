@@ -37,9 +37,10 @@ module PlayerHelper
       singles: 77,
       doubles: 27,
       triples: 1,
-      hr: 29
+      hr: 29,
+      so: 99
     }
-    # Kris Bryant 2017 via baseball-reference
+    # Kris Bryant 2016 via baseball-reference
     player_hash5 = {
       at_bats: 603,
       hits: 176,
@@ -49,7 +50,8 @@ module PlayerHelper
       singles: 99,
       doubles: 35,
       triples: 3,
-      hr: 39
+      hr: 39,
+      so: 154
     }
     # aaron judge 2017
     player_hash6 = {
@@ -61,7 +63,8 @@ module PlayerHelper
       singles: 75,
       doubles: 24,
       triples: 3,
-      hr: 52
+      hr: 52,
+      so: 208
     }
     # Jason Heyward 2011
     player_hash7 = {
@@ -76,7 +79,8 @@ module PlayerHelper
       hr: 14,
       put_outs: 218,
       assists: 4,
-      errors: 6
+      errors: 6,
+      so: 93
     }
 
     player_hash8 = {

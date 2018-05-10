@@ -68,6 +68,11 @@ module Player
       end
     end
 
+    def babip
+      initial_babip = (hits - hr).to_f / (at_bats - so - hr + sac_flies).to_f
+      figure_lead_and_trailing_zeroes(initial_babip.round(3))
+    end
+
     def fielding_percentage
       plays = put_outs + assists
       plays_plus_errors = plays + errors
