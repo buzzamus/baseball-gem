@@ -78,7 +78,7 @@ All values are returned as a string
 Libary includes pitching, fielding, running, and batting stats. See tests for full hash key-values needed.
 (More detailed documentation will be added shortly)
 
-### version 2 (Ruby Gem not yet released)
+### version 2
 
 include a hash with all the key-value pairs desired for each individual statistic into `Baseball.compile()`
 
